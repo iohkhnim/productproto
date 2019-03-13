@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.khoi.productproto;
+
+option java_multiple_files = true;
+
+
+message GetProductRequest {
+  int32 product_id = 1;
+}
+
+message ProductEntry {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+  int64 createdTime = 4;
+  int64 updatedTime = 5;
+}
+
+
+service ProductService {
+  rpc getProduct (GetProductRequest) returns (ProductEntry);
+}
